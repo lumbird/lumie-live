@@ -1,0 +1,90 @@
+:root {
+    // Primary Colour
+    --primary: #ff85e7;
+    --primary-contrast: #fff;
+
+    // Secondary Colour
+    --secondary: #fff;
+
+    // Tertiary Colour
+    --tertiary: #fff;
+
+    // Light 1 Colour
+    --light-1: #010101;
+    --light-1-contrast: #fff;
+
+    // Background and contrast colour
+    --background: #f0eeee;
+    --background-contrast: #000000;
+
+    // Background for Second layer
+    --background-layer-1: #f1f1f1;
+    --background-layer-1-contrast: #b5b5b5;
+
+    // Background and contrast colour
+    --card: #ffffff;
+    --card-contrast: #000000;
+
+    // Spacing and gaps
+    --space: 12px;
+    --grid-spacing: 12px;
+    --small-space: 12px;
+    --font-spacing: 2px;
+    --font-h1-spacing: 6px;
+    --font-subtitle-spacing: 4px;
+    --border-thickness: 2px;
+}
+
+.theme-color-background {
+    --color: var(--background);
+    --color-contrast: var(--background-contrast);
+}
+
+.theme-color-background-layer-1 {
+    --color: var(--background-layer-1);
+    --color-contrast: var(--background-layer-1-contrast);
+}
+
+.theme-color-primary {
+    --color: var(--primary);
+    --color-contrast: var(--primary-contrast);
+}
+
+.theme-color-secondary {
+    --color: var(--secondary);
+    --color-contrast: var(--secondary-contrast);
+}
+
+.theme-color-tertiary {
+    --color: var(--tertiary);
+    --color-contrast: var(--tertiary-contrast);
+}
+
+.theme-card {
+    --color: var(--card);
+    --color-contrast: var(--card-contrast);
+}
+
+.color {
+    color: var(--color);
+}
+
+.color-contrast {
+    color: var(--color-contrast);
+}
+
+.border {
+    border-color: var(--color);
+}
+
+.border-contrast {
+    border-color: var(--color-contrast);
+}
+
+.background {
+    background-color: var(--color);
+}
+
+.background-contrast {
+    background-color: var(--color-contrast);
+}

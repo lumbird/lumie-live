@@ -10,8 +10,21 @@
   },
   "author": "Lumie",
   "license": "SEE LICENSE IN license.txt",
-  "dependencies": {},
+  "dependencies": {
+    "@fontsource-variable/albert-sans": "^5.0.13"
+  },
   "devDependencies": {
+    "@lumieslab/skribl": "^0.0.1",
+    "@lumieslab/stasho": "^0.0.3",
+    "@types/babelify": "^7.3.10",
+    "@types/browserify": "^12.0.40",
+    "@types/gulp": "^4.0.17",
+    "@types/gulp-concat": "^0.0.37",
+    "@types/gulp-sass": "^5.0.4",
+    "@types/gulp-uglify": "^3.0.11",
+    "@types/gulp-watch": "^4.1.39",
+    "@types/vinyl-buffer": "^1.0.3",
+    "@types/vinyl-source-stream": "^0.0.34",
     "babelify": "^10.0.0",
     "browserify": "^17.0.0",
     "gulp": "^5.0.0",
@@ -24,17 +37,6 @@
     "ts-node": "^10.9.2",
     "tsify": "^5.0.4",
     "vinyl-buffer": "^1.0.1",
-    "vinyl-source-stream": "^2.0.0",
-    "@lumieslab/skribl": "^0.0.1",
-    "@lumieslab/stasho": "^0.0.3",
-    "@types/babelify": "^7.3.10",
-    "@types/browserify": "^12.0.40",
-    "@types/gulp": "^4.0.17",
-    "@types/gulp-concat": "^0.0.37",
-    "@types/gulp-sass": "^5.0.4",
-    "@types/gulp-uglify": "^3.0.11",
-    "@types/gulp-watch": "^4.1.39",
-    "@types/vinyl-buffer": "^1.0.3",
-    "@types/vinyl-source-stream": "^0.0.34"
+    "vinyl-source-stream": "^2.0.0"
   }
 }

@@ -33,7 +33,7 @@ const buildAndBundleSite = (isMinified: boolean) => {
 }
 
 const buildAndBundleStyle = (isMinified: boolean) => {
-    const chain = gulp.src('src/**/*.scss')
+    const chain = gulp.src('src/styles/global.scss')
       .pipe(Sassify())
       .pipe(concat('styles.css'))
       .pipe(gulp.dest(buildRoot));
@@ -58,6 +58,12 @@ gulp.task("copy-statics", (done) => {
     .pipe(gulp.dest(buildRoot));
 });
 
+gulp.task("copy-fonts", (done) => {
+  return gulp
+  .src('node_modules/@fontsource-variable/albert-sans/files/**/*')
+  .pipe(gulp.dest(buildRoot+'/assets/albertsans'));
+});
+
 gulp.task("copy-assets", (done) => {
   return gulp
   .src('src/assets/**/*')
@@ -68,7 +74,8 @@ gulp.task("build-test", gulp.parallel([
   'build-and-bundle-site',
   'build-and-bundle-styles', 
   'copy-statics',
-  'copy-assets'
+  'copy-assets',
+  'copy-fonts'
 ]));
 
 
@@ -76,7 +83,8 @@ gulp.task("build-production", gulp.parallel([
   'build-minified-and-bundle-site',
   'build-minified-and-bundle-styles', 
   'copy-statics',
-  'copy-assets'
+  'copy-assets',
+  'copy-fonts'
 ]));
 
 gulp.task("watch", gulp.parallel([
@@ -84,4 +92,5 @@ gulp.task("watch", gulp.parallel([
   'build-and-bundle-site-watch',
   'build-and-bundle-styles-watch', 
   'copy-statics-watch',
+  'copy-fonts'
 ]));
