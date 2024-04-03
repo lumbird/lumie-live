@@ -10,10 +10,8 @@
   },
   "author": "Lumie",
   "license": "SEE LICENSE IN license.txt",
-  "dependencies": {
-    "@fontsource-variable/albert-sans": "^5.0.13"
-  },
   "devDependencies": {
+    "@fontsource/albert-sans": "^5.0.12",
     "@lumieslab/skribl": "^0.0.1",
     "@lumieslab/stasho": "^0.0.3",
     "@types/babelify": "^7.3.10",

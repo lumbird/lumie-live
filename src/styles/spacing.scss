@@ -72,6 +72,10 @@ $spacing-values-fibonacci: 0rem 1rem 2rem 3rem 5rem 8rem 13rem 21rem 34rem 55rem
             padding: $value;
         }
 
+        .font-size-#{$index}#{$suffix} {
+            font-size: $value;
+        }
+
         .width-#{$index}#{$suffix}, .square-#{$index}#{$suffix} {
             width: $value;
         }
