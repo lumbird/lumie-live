@@ -54,19 +54,19 @@ gulp.task('copy-statics-watch', () => gulp.watch('src/**/*.html', gulp.series('c
 
 gulp.task("copy-statics", (done) => {
     return gulp
-    .src('src/static/**/*')
+    .src('src/static/**/*', {removeBOM: false})
     .pipe(gulp.dest(buildRoot));
 });
 
 gulp.task("copy-fonts", (done) => {
   return gulp
-  .src('node_modules/@fontsource-variable/albert-sans/files/**/*')
-  .pipe(gulp.dest(buildRoot+'/assets/albertsans'));
+  .src('node_modules/@fontsource/albert-sans/files/**/*', {removeBOM: false})
+  .pipe(gulp.dest(buildRoot+'/assets/fonts/albertsans'));
 });
 
 gulp.task("copy-assets", (done) => {
   return gulp
-  .src('src/assets/**/*')
+  .src('src/assets/**/*', {removeBOM: false})
   .pipe(gulp.dest(buildRoot+'/assets'));
 });
 
