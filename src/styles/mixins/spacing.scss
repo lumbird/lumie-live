@@ -1,0 +1,210 @@
+// Function for calculating values based on power scaling
+@function power-scale($value) {
+    $power: pow(2, $value);
+
+    @return $power;
+}
+
+// Function for calculating values based on Fibonacci scaling
+@function fibonacci-scale($value) {
+    @if $value == 1 {
+        @return 1;
+    } @else if $value == 2 {
+        @return 1;
+    } @else {
+        @return fibonacci-scale($value - 1) + fibonacci-scale($value - 2);
+    }
+}
+
+// Function to calculate scaled values
+@function scale-value($value, $scaleType, $valueType) {
+    @if $scaleType == linear {
+        @return $value + $valueType;
+    } @else if $scaleType == power {
+        @return power-scale($value) + $valueType;
+    } @else if $scaleType == fibonacci {
+        @return fibonacci-scale($value) + $valueType;
+    }
+}
+
+// Clear all margins
+@mixin clear-margin {
+    margin: 0;
+}
+
+// Clear all padding
+@mixin clear-padding {
+    padding: 0;
+}
+
+// Clear all the margins and spacing
+@mixin clear-spacing {
+    margin: 0;
+    padding: 0;
+}
+
+// Mixin for applying flex gap
+@mixin flex-gap($value, $scaleType: linear, $valueType: rem) {
+    gap: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying border radius
+@mixin border-radius($value, $scaleType: linear, $valueType: rem) {
+    border-radius: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin top and bottom
+@mixin margin-tb($value, $scaleType: linear, $valueType: rem) {
+    margin-top: scale-value($value, $scaleType);
+    margin-bottom: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin top
+@mixin margin-top($value, $scaleType: linear, $valueType: rem) {
+    margin-top: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin bottom
+@mixin margin-bottom($value, $scaleType: linear, $valueType: rem) {
+    margin-bottom: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin left and right
+@mixin margin-lr($value, $scaleType: linear, $valueType: rem) {
+    margin-left: scale-value($value, $scaleType, $valueType);
+    margin-right: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin left
+@mixin margin-left($value, $scaleType: linear, $valueType: rem) {
+    margin-left: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin right
+@mixin margin-right($value, $scaleType: linear, $valueType: rem) {
+    margin-right: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding top and bottom
+@mixin padding-tb($value, $scaleType: linear, $valueType: rem) {
+    padding-top: scale-value($value, $scaleType, $valueType);
+    padding-bottom: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding top
+@mixin padding-top($value, $scaleType: linear, $valueType: rem) {
+    padding-top: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding bottom
+@mixin padding-bottom($value, $scaleType: linear, $valueType: rem) {
+    padding-bottom: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding left and right
+@mixin padding-lr($value, $scaleType: linear, $valueType: rem) {
+    padding-left: scale-value($value, $scaleType, $valueType);
+    padding-right: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding left
+@mixin padding-left($value, $scaleType: linear, $valueType: rem) {
+    padding-left: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding right
+@mixin padding-right($value, $scaleType: linear, $valueType: rem) {
+    padding-right: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying margin
+@mixin margin($value, $scaleType: linear, $valueType: rem) {
+    margin: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying padding
+@mixin padding($value, $scaleType: linear, $valueType: rem) {
+    padding: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying font size
+@mixin font-size($value, $scaleType: linear, $valueType: rem) {
+    font-size: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying width
+@mixin width($value, $scaleType: linear, $valueType: rem) {
+    width: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying height
+@mixin height($value, $scaleType: linear, $valueType: rem) {
+    height: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying max width
+@mixin max-width($value, $scaleType: linear, $valueType: rem) {
+    max-width: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying min width
+@mixin min-width($value, $scaleType: linear, $valueType: rem) {
+    min-width: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying max height
+@mixin max-height($value, $scaleType: linear, $valueType: rem) {
+    max-height: scale-value($value, $scaleType, $valueType);
+}
+
+// Mixin for applying min height
+@mixin min-height($value, $scaleType: linear, $valueType: rem) {
+    min-height: scale-value($value, $scaleType, $valueType);
+}
+
+@mixin round {
+    border-radius: 100%;
+}
+
+@mixin text-center {
+    text-align: center;
+}
+
+@mixin width-full {
+    width: 100%;
+}
+
+@mixin height-full {
+    height: 100%;
+}
+
+@mixin square-full {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin max-width-full {
+    max-width: 100%;
+}
+
+@mixin max-height-full {
+    max-height: 100%;
+}
+
+@mixin max-square-full {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@mixin min-width-full {
+    min-width: 100%;
+}
+
+@mixin min-height-full {
+    min-height: 100%;
+}
+
+@mixin min-square-full {
+    min-width: 100%;
+    min-height: 100%;
+}

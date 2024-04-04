@@ -1,17 +1,4 @@
-.font-thin { font-weight: 100; }
-.font-extra-light { font-weight: 200; }
-.font-light { font-weight: 300; }
-.font-normal { font-weight: 400; }
-.font-medium { font-weight: 500; }
-.font-semi-bold { font-weight: 600; }
-.font-bold { font-weight: 700; }
-.font-extra-bold { font-weight: 800; }
-.font-black { font-weight: 900; }
-.font-italic { font-style: italic; }
-.text-no-wrap { text-wrap: nowrap; }
-
 $fonts: 100 200 300 400 500 600 700 800 900;
-
 
 @mixin fonts($list) {
   @for $i from 1 through length($list) {

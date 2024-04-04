@@ -3,23 +3,23 @@ import { div, button, fragment, ul, li, img } from "@lumieslab/skribl";
 
 
 const container = (children: HTMLElement) => {
-    return div({class: 'flex-row flex-jc-center full-width'}, children);
+    return div({class: 'app-root flex-row flex-jc-center full-width'}, children);
 }
 const mainPage = () => {
 
 
 
     return container(div(
-            {class: 'app-content flex-column full-width m-2 flex-gap-1 width-7f'},
+            {class: 'app-container'},
             // Header container 
-            div({class: 'flex-row flex-ai-center flex-jc-center flex-gap-1 flex-wrap'},
+            div({class: 'header-container'},
 
                 // Logo container
-                div({class: 'thumbnail'}, img({src: './assets/images/profile.jpg'})),
+                div({class: 'logo-content'}, img({src: './assets/images/profile.jpg'})),
 
                 // Header container
-                div({class: 'flex-row flex-ai-center'},
-                    div({class: 'title-font font-black font-italic font-size-3 text-no-wrap'},
+                div({class: 'title-content'},
+                    div({class: 'title'},
                         fragment('Lumies Lab')
                     ),
                 ),
@@ -36,14 +36,14 @@ const mainPage = () => {
             // ),
 
             // Buttons container
-            ul({class: 'flex-row flex-jc-spaced full-width theme-color-primary font-bold'},
-                li({class: 'mr-1 active'}, fragment('Feed')),
-                li({class: 'mr-1'}, fragment('Gallery')),
+            ul({class: 'button-container theme-color-primary'},
+                li({class: 'active'}, fragment('Feed')),
+                li({}, fragment('Gallery')),
                 li({}, fragment('Projects')),
             ),
 
             // Body content container
-            div({class: 'full-width'},),
+            div({class: 'body-container full-width'},),
         ));
 }
 

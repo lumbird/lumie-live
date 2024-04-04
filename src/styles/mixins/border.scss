@@ -1,20 +1,19 @@
-.border-right {
+@mixin border-right {
     border-right-style: solid;
     border-right-width: 1px;
 }
 
-.border-left {
+@mixin border-left {
     border-left-style: solid;
     border-left-width: 1px;
 }
 
-
-.border-top {
+@mixin border-top {
     border-top-style: solid;
     border-top-width: 1px;
 }
 
-.border-bottom {
+@mixin border-bottom {
     border-bottom-style: solid;
     border-bottom-width: 1px;
 }
