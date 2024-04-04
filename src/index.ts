@@ -1,5 +1,5 @@
 
-import { div, button, fragment, ul, li, img } from "@lumieslab/skribl";
+import { div, button, fragment, ul, li, img, span } from "@lumieslab/skribl";
 
 
 const container = (children: HTMLElement) => {
@@ -30,15 +30,16 @@ const mainPage = () => {
                 ),
             ),
 
-            // // Live status
-            // div({class: 'full-width mb-1'},
-            //     li( {
-            //         class: 'fa-brands fa-youtube',
-            //         style: 'color: red'
-            //     }),
-            //     div({  }, fragment('')),
-            //     div({  }, fragment('')),
-            // ),
+            // Live status
+            div({class: 'live-status'},
+                li( {
+                    class: 'fa-brands fa-youtube'
+                }),
+                div({ class: 'status-subtitle'  }, fragment('LISTENING TOO')),
+                div({ class: 'status-message' },
+                    span({ class: 'scroll-text' }, fragment('The Prodigy - Invaders Must Die'))
+                ),
+            ),
 
             // Buttons container
             ul({class: 'button-container theme-color-primary'},
