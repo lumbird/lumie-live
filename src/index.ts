@@ -3,14 +3,19 @@ import { div, button, fragment, ul, li, img } from "@lumieslab/skribl";
 
 
 const container = (children: HTMLElement) => {
-    return div({class: 'app-root flex-row flex-jc-center full-width'}, children);
+    return div(
+        {
+            class: 'app-root'
+        },
+            div({ class: 'app-container'}, children)
+        );
 }
 const mainPage = () => {
 
 
 
     return container(div(
-            {class: 'app-container'},
+            {class: 'app-content theme-color-background-layer-1 background'},
             // Header container 
             div({class: 'header-container'},
 

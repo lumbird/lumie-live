@@ -12,16 +12,58 @@ html, body, #root {
   margin: 0;
 }
 
+// ----------------------------------------------------------------
+// Setup variables
+$max-page-size: 42;
+$page-padding: 1;
+$image-scale-power: 3;
+$title-scale-power: 1.75;
+$button-text-scale-power: 0.75;
+
+
+// ----------------------------------------------------------------
+
+// Styling for desktop
+@media only screen and (min-width: 601px) {
+  .header-container {
+
+  }
+
+  .button-container {
+    all: unset;
+    @include flex-gap(1, linear);
+  }
+}
+
+// Styling for mobile
+@media only screen and (max-width: 600px) {
+  .header-container {
+    @include flex-justify-content(center);
+  }
+
+  .button-container {
+    all: unset;
+    @include flex-justify-content(space-between);
+  }
+}
+
 .app-root {
   @include flex-row;
   @include width-full;
   @include flex-justify-content(center);
+}
 
-  .app-container {
-    @include flex-column;
-    @include margin(1, power);
-    @include flex-gap(1, linear);
-  }
+.app-container {
+  @include flex-column;
+  @include width($max-page-size, linear);
+}
+
+.app-content {
+  @include flex-column;
+  @include flex-gap(1, linear);
+  @include padding($page-padding, linear);
+
+  flex-grow: 1;
 }
 
 // Styling for the header of the page
@@ -29,11 +71,10 @@ html, body, #root {
   @include flex-row;
   @include flex-gap(0, power);
   @include flex-wrap;
-  @include flex-justify-content(center);
 
   .logo-content {
     img {
-      @include height(4, power);
+      @include height($image-scale-power, power);
       object-fit: contain;
     }
   }
@@ -44,7 +85,7 @@ html, body, #root {
 
     .title {
       @include font-black;
-      @include font-size(1.75, power);
+      @include font-size($title-scale-power, power);
     }
   }
 
@@ -52,11 +93,9 @@ html, body, #root {
 
 // Styling for the buttons of the page
 .button-container {
-  all: unset;
   @include flex-row;
-  @include flex-justify-content(space-between);
   @include font-bold;
-  @include font-size(0.75, power);
+  @include font-size($button-text-scale-power, power);
 
 
   li { all: unset; }
