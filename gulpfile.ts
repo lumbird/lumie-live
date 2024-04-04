@@ -10,6 +10,7 @@ import source from 'vinyl-source-stream';
 import buffer from 'vinyl-buffer';
 import concat from 'gulp-concat';
 import uglifycss from 'gulp-uglifycss';
+import browserSync from 'browser-sync';
 
 const Sassify = sassGulp(sass);
 const buildRoot = 'www';
@@ -50,7 +51,21 @@ gulp.task('build-minified-and-bundle-styles', () => buildAndBundleStyle(true));
 // Watching tasks
 gulp.task('build-and-bundle-site-watch', () => gulp.watch('src/**/*.ts', gulp.series('build-and-bundle-site')));
 gulp.task('build-and-bundle-styles-watch', () => gulp.watch('src/**/*.scss', gulp.series('build-and-bundle-styles')));
+gulp.task('copy-assets-watch', () => gulp.watch('src/assets/**/*.scss', gulp.series('copy-assets')));
 gulp.task('copy-statics-watch', () => gulp.watch('src/**/*.html', gulp.series('copy-statics')));
+
+gulp.task("serve", () => {
+  browserSync.init({
+    server: './www'
+  });
+
+  gulp.watch("www/styles.css").on('change', browserSync.reload);;
+  gulp.watch("www/bundle.js").on('change', browserSync.reload);;
+  gulp.watch("www/index.html").on('change', browserSync.reload);
+  gulp.watch("www/assets/**/*").on('change', browserSync.reload);
+
+
+});
 
 gulp.task("copy-statics", (done) => {
     return gulp
@@ -91,6 +106,8 @@ gulp.task("watch", gulp.parallel([
   'build-production',
   'build-and-bundle-site-watch',
   'build-and-bundle-styles-watch', 
+  'copy-assets-watch',
   'copy-statics-watch',
-  'copy-fonts'
+  'copy-fonts',
+  'serve'
 ]));

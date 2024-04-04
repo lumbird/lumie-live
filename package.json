@@ -6,6 +6,7 @@
   "scripts": {
     "build": "gulp build-production",
     "build:test": "gulp build-test",
+    "build:watch": "gulp watch",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Lumie",
@@ -15,6 +16,7 @@
     "@lumieslab/skribl": "^0.0.1",
     "@lumieslab/stasho": "^0.0.3",
     "@types/babelify": "^7.3.10",
+    "@types/browser-sync": "^2.29.0",
     "@types/browserify": "^12.0.40",
     "@types/gulp": "^4.0.17",
     "@types/gulp-concat": "^0.0.37",
@@ -24,6 +26,7 @@
     "@types/vinyl-buffer": "^1.0.3",
     "@types/vinyl-source-stream": "^0.0.34",
     "babelify": "^10.0.0",
+    "browser-sync": "^3.0.2",
     "browserify": "^17.0.0",
     "gulp": "^5.0.0",
     "gulp-concat": "^2.6.1",

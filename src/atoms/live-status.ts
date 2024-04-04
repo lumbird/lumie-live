@@ -5,7 +5,7 @@ export function liveStatus(): HTMLElement {
         li( {
             class: 'fa-brands fa-youtube'
         }),
-        div({ class: 'status-subtitle'  }, fragment('LISTENING TOO')),
+        div({ class: 'status-subtitle'  }, fragment('LISTENING TO')),
         div({ class: 'status-message' },
             span({ class: 'scroll-text' }, fragment('The Prodigy - Invaders Must Die'))
         ),
