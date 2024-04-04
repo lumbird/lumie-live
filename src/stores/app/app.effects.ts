@@ -15,11 +15,15 @@ export function renderEffect(action: Action) {
     }
 }
 
-export function generalRerenderEffect(action: Action) {
+export function generalRerenderEffect(action: Action) {    
+    
+    console.log('dispatched', action);
+
     if (!isAction(action, recalculateAction())) {
         const store = getStore();
         store.dispatch(recalculateAction());
     }
+
 }
 
 export const appEffects: EffectCallback<any>[] = [renderEffect, generalRerenderEffect];

@@ -98,7 +98,6 @@ $button-text-scale-power: 0.75;
 
   li {
     @include font-size(2);
-    cursor: pointer;
   }
 
   .status-subtitle {
@@ -123,7 +122,10 @@ $button-text-scale-power: 0.75;
   @include font-size($button-text-scale-power, power);
 
 
-  li { all: unset; }
+  li { 
+    all: unset; 
+    cursor: pointer;
+  }
   li.active {
     border-bottom-color: var(--color);
     border-bottom-width: scale-value(2, linear, px);
