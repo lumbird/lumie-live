@@ -1,8 +1,8 @@
 import { div, button, fragment, ul, li, img, span } from "@lumieslab/skribl";
-import { headerContainer } from './header-container';
-import { buttonContainer } from './button-container';
+import { headerContainer } from './container/header-container';
+import { buttonContainer } from './container/button-container';
 import { liveStatus } from './live-status';
-import { bodyContainer } from './body-container';
+import { bodyContainer } from './container/body-container';
 
 export function app(): HTMLElement {
     return div({ class: 'app-root' },

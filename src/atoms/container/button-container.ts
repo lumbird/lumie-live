@@ -1,7 +1,7 @@
 import { fragment, li, ul } from '@lumieslab/skribl';
-import { getStore } from '../stores/app/app.store';
-import { buttonsMemory, selectedButtonIdMemory } from '../stores/buttons/buttons. memories';
-import { selectButtonAction } from '../stores/buttons/buttons.actions';
+import { getStore } from '../../stores/app/app.store';
+import { buttonsMemory, selectedButtonIdMemory } from '../../stores/buttons/buttons. memories';
+import { selectButtonAction } from '../../stores/buttons/buttons.actions';
 
 export function buttonContainer(): HTMLElement {
 
