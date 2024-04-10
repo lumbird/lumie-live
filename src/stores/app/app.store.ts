@@ -5,11 +5,13 @@ import { appEffects } from './app.effects';
 import { buttonState } from '../buttons/buttons.store';
 import { buttonMemories } from '../buttons/buttons. memories';
 import { buttonReducer } from '../buttons/buttons.reducer';
+import { feedState } from '../feed/feed.store';
 
 
 
 const state: AppState = {
-    buttonState
+    buttonState,
+    feedState
 }
 
 export function getStore() {
