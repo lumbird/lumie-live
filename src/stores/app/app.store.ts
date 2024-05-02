@@ -20,7 +20,7 @@ const state: AppState = {
 export function getStore() {
     return Store<AppState>(state, [
         ...buttonReducer,
-        ...routeReducers
+        routeReducers
     ], [
         ...buttonMemories,
         ...routeMemories
