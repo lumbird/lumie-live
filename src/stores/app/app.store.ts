@@ -26,5 +26,5 @@ export function getStore() {
         ...routeMemories
     ], [
         ...appEffects
-    ], {} as CombinedContext);
+    ]);
 }

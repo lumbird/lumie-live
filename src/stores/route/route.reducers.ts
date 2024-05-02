@@ -14,19 +14,22 @@ const gotoRoutePathReducer = filteredReducer([
         routePath: action.routePath
     }
 
+    console.log('recalc1');
+
     return state;
 });
 
 const gotoRouteReducer = filteredReducer([
     gotoLocationRouteAction
 ], (state: AppState, action: ReturnType<typeof gotoLocationRouteAction>) => {
-    const routePath = action.route.join(state.routeState.delimiter);
 
-    state.routeState = {
-        ... state.routeState,
-        route: action.route,
+    const actionRoute = Array.from(action.route)
+    const routePath = actionRoute.join(state.routeState.delimiter);
+
+    state.routeState = Object.assign({}, state.routeState, {
+        route: actionRoute,
         routePath: routePath
-    }
+    });
 
     return state;
 });
