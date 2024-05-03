@@ -1,21 +1,13 @@
 import { Action } from "@lumieslab/stasho/dist/interfaces/store-interfaces";
 import { AppState } from "../app/app.interfaces";
-import { SelectButtonData, selectButtonActionType } from "./buttons.actions";
+import { selectButtonAction } from "./buttons.actions";
+import { subReducer, filteredReducer } from '@lumieslab/stasho';
 
-export const selectButtonReducer = function(appState: AppState, action: Action) {
-
-    if(action.type === selectButtonActionType) {
-        const selselectButtonAction = action as SelectButtonData & Action;
-
-            appState.buttonState = {
-            ...appState.buttonState,
-            selectedButtonId: selselectButtonAction.selection
+export const buttonReducer = subReducer<AppState, 'buttonState', Action & any>('buttonState',
+    filteredReducer([selectButtonAction], function(appState, action: ReturnType<typeof selectButtonAction>) {
+        return {
+            ...appState,
+            selectedButtonId: action.selection
         }
-    }
-
-    return appState;
-}
-
-export const buttonReducer = [
-    selectButtonReducer
-];
+    })
+);
