@@ -10,7 +10,7 @@ export function feedContent(): HTMLElement {
 
     return div({class: 'feed'},
         ...posts.map((post) => {
-            return chatItem(post.title, post.message, post.embeddings, post.attachments);
+            return chatItem(post.title, post.message, post.embeddings, post.attachments, post.timestamp);
         })
     );
 
