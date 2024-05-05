@@ -1,6 +1,5 @@
 import { Store } from '@lumieslab/stasho';
 import { AppState } from './app.interfaces';
-import { CombinedContext } from '@lumieslab/stasho/dist/interfaces/context-typing';
 import { appEffects } from './app.effects';
 import { buttonState } from '../buttons/buttons.store';
 import { buttonMemories } from '../buttons/buttons. memories';
@@ -9,7 +8,7 @@ import { feedState } from '../feed/feed.store';
 import { routeState } from '../route/route.store';
 import { routeReducers } from '../route/route.reducers';
 import { routeMemories } from '../route/route.memories';
-
+import { feedMemories } from '../feed/feed.memories';
 
 const state: AppState = {
     buttonState,
@@ -23,7 +22,8 @@ export function getStore() {
         routeReducers
     ], [
         ...buttonMemories,
-        ...routeMemories
+        ...routeMemories,
+        ...feedMemories
     ], [
         ...appEffects
     ]);
