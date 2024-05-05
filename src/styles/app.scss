@@ -20,6 +20,8 @@ $image-scale-power: 3;
 $title-scale-power: 1.75;
 $button-text-scale-power: 0.75;
 
+$profile-scale-power: 1.75;
+
 
 // ----------------------------------------------------------------
 
@@ -135,3 +137,45 @@ $button-text-scale-power: 0.75;
 
 // Styling for the body of the page
 .body-container {}
+
+// Feed styling
+
+.feed {
+  @include flex-column;
+  @include flex-gap(1);
+
+  .feed-header {
+    @include flex-row;
+    @include flex-align-items(center);
+    @include flex-gap(0.5);
+
+    .feed-thumbnail {
+      @include height(2, linear);
+      border-radius: 100%;
+      object-fit: contain;
+    }
+
+    .feed-title {
+      @include flex-gap(0.5, linear, rem);
+      @include flex-align-content(center);
+
+      .title {
+        @include font-bold;
+      }
+
+      .timestamp {
+        @include font-italic;
+        @include font-size(0.75, linear, em);
+      }
+    }
+  }
+
+  .feed-message {
+    @include flex-column;
+    @include flex-gap(0.5);
+
+    .feed-content {
+      @include flex-column;
+    }
+  }
+}

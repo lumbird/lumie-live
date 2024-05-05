@@ -7,4 +7,5 @@ export interface Post {
     message: string;
     embeddings: unknown[];
     attachments: unknown[];
+    timestamp: string;
 }

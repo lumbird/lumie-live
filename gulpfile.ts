@@ -51,7 +51,7 @@ gulp.task('build-minified-and-bundle-styles', () => buildAndBundleStyle(true));
 // Watching tasks
 gulp.task('build-and-bundle-site-watch', () => gulp.watch('src/**/*.ts', gulp.series('build-and-bundle-site')));
 gulp.task('build-and-bundle-styles-watch', () => gulp.watch('src/**/*.scss', gulp.series('build-and-bundle-styles')));
-gulp.task('copy-assets-watch', () => gulp.watch('src/assets/**/*.scss', gulp.series('copy-assets')));
+gulp.task('copy-assets-watch', () => gulp.watch('src/assets/**/*.*', gulp.series('copy-assets')));
 gulp.task('copy-statics-watch', () => gulp.watch('src/**/*.html', gulp.series('copy-statics')));
 
 gulp.task("serve", () => {
@@ -59,8 +59,8 @@ gulp.task("serve", () => {
     server: './www'
   });
 
-  gulp.watch("www/styles.css").on('change', browserSync.reload);;
-  gulp.watch("www/bundle.js").on('change', browserSync.reload);;
+  gulp.watch("www/styles.css").on('change', browserSync.reload);
+  gulp.watch("www/bundle.js").on('change', browserSync.reload);
   gulp.watch("www/index.html").on('change', browserSync.reload);
   gulp.watch("www/assets/**/*").on('change', browserSync.reload);
 
