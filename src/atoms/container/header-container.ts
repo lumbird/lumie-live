@@ -4,7 +4,7 @@ export function headerContainer(): HTMLElement {
     return div({class: 'header-container'},
 
         // Logo container
-        div({class: 'logo-content'}, img({src: './assets/images/profile.jpg'})),
+        div({class: 'logo-content'}, img({src: './assets/images/logo.jpg'})),
 
         // Header container
         div({class: 'title-content'},
