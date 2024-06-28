@@ -63,8 +63,6 @@ gulp.task("serve", () => {
   gulp.watch("www/bundle.js").on('change', browserSync.reload);
   gulp.watch("www/index.html").on('change', browserSync.reload);
   gulp.watch("www/assets/**/*").on('change', browserSync.reload);
-
-
 });
 
 gulp.task("copy-statics", (done) => {

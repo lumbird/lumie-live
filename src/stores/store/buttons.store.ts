@@ -1,4 +1,4 @@
-import { ButtonState } from "./buttons.interface";
+import { ButtonState } from "../interfaces/buttons.interface";
 
 export const buttonState: ButtonState = {
     buttons: [

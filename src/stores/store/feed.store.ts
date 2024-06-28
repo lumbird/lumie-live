@@ -1,4 +1,4 @@
-import { FeedState } from './feed.interface';
+import { FeedState } from '../interfaces/feed.interface';
 
 export const feedState: FeedState = {
     posts: [

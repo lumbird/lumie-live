@@ -1,8 +1,7 @@
 import { fragment, li, ul } from '@lumieslab/skribl';
-import { getStore } from '../../stores/app/app.store';
-import { buttonsMemory } from '../../stores/buttons/buttons. memories';
-import { gotoLocationRouteAction, gotoLocationRoutePathAction } from '../../stores/route/route.action';
-import { routeMemory } from '../../stores/route/route.memories';
+import { getStore } from '../../stores/store/app.store';
+import { buttonsMemory, routeMemory } from '../../stores/memories';
+import { gotoLocationRouteAction } from '../../stores/actions';
 
 export function buttonContainer(): HTMLElement {
 
