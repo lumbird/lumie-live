@@ -1,9 +1,20 @@
-import { AppState } from '../app/app.interfaces';
-import { Action } from '@lumieslab/stasho/dist/interfaces/store-interfaces';
 import { combinedReducers, filteredReducer, subReducer } from '@lumieslab/stasho';
-import { goBackAction, gotoLocationRouteAction, gotoLocationRoutePathAction } from './route.action';
+import { AppState } from './interfaces/app.interfaces';
+import { Action, StoreDef } from '@lumieslab/stasho/dist/interfaces/store-interfaces';
+import { selectButtonAction, goBackAction, gotoLocationRouteAction, gotoLocationRoutePathAction } from './actions';
 
-export const routeReducers = subReducer<AppState, 'routeState', Action & any>('routeState', 
+// ##### Buttons
+const buttonReducer = subReducer<AppState, 'buttonState', Action & any>('buttonState',
+    filteredReducer([selectButtonAction], function(appState, action: ReturnType<typeof selectButtonAction>) {
+        return {
+            ...appState,
+            selectedButtonId: action.selection
+        }
+    })
+);
+
+// ##### Route
+const routeReducer = subReducer<AppState, 'routeState', Action & any>('routeState',
     combinedReducers(
 
         // Routing that using a string based path
@@ -24,7 +35,7 @@ export const routeReducers = subReducer<AppState, 'routeState', Action & any>('r
         ], (state, action: ReturnType<typeof gotoLocationRouteAction>) => {
             const actionRoute = Array.from(action.route)
             const routePath = actionRoute.join(state.delimiter);
-        
+
             return {
                 ...state,
                 route: actionRoute,
@@ -36,18 +47,23 @@ export const routeReducers = subReducer<AppState, 'routeState', Action & any>('r
         filteredReducer([
             goBackAction
         ], (state, action: Action) => {
-        
+
             if(state.route.length > 0) {
                 state.route.pop();
-        
+
                 return {
                     ... state,
                     route: state.route,
                     routePath: state.route.join(state.delimiter)
                 }
             }
-        
+
             return state;
         })
     ),
 );
+
+export function connectReducers(store: StoreDef<AppState>) {
+    store.attachReducer(buttonReducer);
+    store.attachReducer(routeReducer);
+}

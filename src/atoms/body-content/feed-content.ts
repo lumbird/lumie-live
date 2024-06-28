@@ -1,7 +1,7 @@
 import { div } from '@lumieslab/skribl';
-import { getStore } from '../../stores/app/app.store';
-import { postsMemory } from '../../stores/feed/feed.memories';
 import { chatItem } from '../items/chat-item';
+import { getStore } from '../../stores/store/app.store';
+import { postsMemory } from '../../stores/memories';
 
 export function feedContent(): HTMLElement {
 
